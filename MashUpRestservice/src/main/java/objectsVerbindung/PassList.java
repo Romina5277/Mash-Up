@@ -1,6 +1,6 @@
-package objects;
+package objectsVerbindung;
 
-public class Stop {
+public class PassList {
     Station station;
     String arrival;
     int arrivalTimestamp;

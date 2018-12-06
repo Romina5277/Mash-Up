@@ -1,6 +1,6 @@
-package objects;
+package objectsVerbindung;
 
-public class Location {
+public class Station {
     String id;
     String name;
     String score;

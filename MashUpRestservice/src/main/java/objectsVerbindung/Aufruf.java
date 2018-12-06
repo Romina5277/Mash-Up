@@ -1,4 +1,4 @@
-package objects;
+package objectsVerbindung;
 
 public class Aufruf {
     Station station;

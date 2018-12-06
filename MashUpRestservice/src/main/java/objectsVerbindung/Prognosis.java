@@ -1,4 +1,4 @@
-package objects;
+package objectsVerbindung;
 
 public class Prognosis {
     String platform;

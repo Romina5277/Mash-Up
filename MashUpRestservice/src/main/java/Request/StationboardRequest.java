@@ -1,8 +1,8 @@
 package Request;
 
-import objects.Aufruf;
-import objects.PassList;
-import objects.Stationboard;
+import objectsVerbindung.Aufruf;
+import objectsVerbindung.PassList;
+import objectsVerbindung.Stationboard;
 
 import javax.ws.rs.client.Client;
 import javax.ws.rs.client.ClientBuilder;
