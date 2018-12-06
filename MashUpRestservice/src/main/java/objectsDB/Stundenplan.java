@@ -8,6 +8,13 @@ public class Stundenplan {
     private Time start_time;
     private String lesson;
 
+    public Stundenplan(int user_id, int day, Time start_time, String lesson) {
+        this.user_id = user_id;
+        this.day = day;
+        this.start_time = start_time;
+        this.lesson = lesson;
+    }
+
     public int getUser_id() {
         return user_id;
     }

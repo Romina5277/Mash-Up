@@ -39,7 +39,6 @@ public class StationboardRequest {
             }
         }
 
-        doAusgabe();
     }
 
     public void doAusgabe(){
@@ -51,7 +50,9 @@ public class StationboardRequest {
         System.out.println("Arrival: " + arrival);
 
         for (String stop: stopList) {
-            System.out.println("Stop in: " + stop);
+            if (stop != null){
+                System.out.println("Stop in: " + stop);
+            }
         }
 
         System.out.println();
