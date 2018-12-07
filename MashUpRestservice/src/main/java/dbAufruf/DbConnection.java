@@ -1,8 +1,9 @@
 package dbAufruf;
 
-import java.sql.DriverManager;
-import java.sql.Connection;
-import  java.sql.SQLException;
+import objectsDB.Login;
+
+import java.sql.*;
+import java.util.ArrayList;
 
 public class DbConnection {
     public static void connection(){
@@ -11,8 +12,30 @@ public class DbConnection {
             Connection connection = DriverManager.getConnection("jdbc:mysql://localhost/mash-up","root", "");
             System.out.println("Database is connected!");
 
+            String query = "SELECT * FROM login";
+            Statement stmt = connection.createStatement();
+            ResultSet rs = stmt.executeQuery(query);
 
+            int columns = rs.getMetaData().getColumnCount();
 
+            System.out.println("Anzahl Spalten = " + columns);
+
+            System.out.println("Alle Daten aus Login:");
+            System.out.println();
+
+            for (int i = 1; i <= columns; i++){
+                System.out.print(rs.getMetaData().getColumnLabel(i) + "\t\t");
+            }
+
+            System.out.println();
+            System.out.println();
+
+            while (rs.next()){
+                for (int i = 1; i <= columns; i++){
+                    System.out.print(rs.getString(i) + "\t\t");
+                }
+                System.out.println();
+            }
 
             connection.close();
         } catch (SQLException e){
