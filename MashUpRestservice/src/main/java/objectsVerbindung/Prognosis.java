@@ -1,11 +1,11 @@
 package objectsVerbindung;
 
 public class Prognosis {
-    String platform;
-    String arrival;
-    String departure;
-    String capacity1st;
-    String capacity2nd;
+    private String platform;
+    private String arrival;
+    private String departure;
+    private String capacity1st;
+    private String capacity2nd;
 
     public String getPlatform() {
         return platform;

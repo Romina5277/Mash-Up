@@ -1,14 +1,8 @@
 package Request;
 
-import objectsVerbindung.Aufruf;
-import objectsVerbindung.PassList;
-import objectsVerbindung.Stationboard;
-
 import javax.ws.rs.client.Client;
 import javax.ws.rs.client.ClientBuilder;
 import javax.ws.rs.client.WebTarget;
-import javax.ws.rs.core.MediaType;
-import java.util.ArrayList;
 
 public class WetterRequest {
 

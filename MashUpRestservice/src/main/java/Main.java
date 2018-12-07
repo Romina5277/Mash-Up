@@ -1,4 +1,4 @@
-import Request.StationboardRequest;
+import Request.TransportRequest;
 import objectsDB.Stundenplan;
 
 import java.sql.Time;
@@ -8,7 +8,7 @@ public class Main {
     private static ArrayList<Stundenplan> stundenplan = new ArrayList<>();
 
     public static void main(String[] args){
-        StationboardRequest stationrequest = new StationboardRequest();
+        TransportRequest stationrequest = new TransportRequest();
         stationrequest.doRequest();
 
         stundenplan.add(new Stundenplan(1, 4, new Time(8,25,0), "Mathematik"));
@@ -21,7 +21,6 @@ public class Main {
         stundenplan.add(new Stundenplan(1, 4, new Time(15,35,0), "Allgemeinbildung"));
         stundenplan.add(new Stundenplan(1, 4, new Time(16,25,0), "Allgemeinbildung"));
 
-        stationrequest.doAusgabe();
         //doAusgabeStundenplan(1);
     }
 

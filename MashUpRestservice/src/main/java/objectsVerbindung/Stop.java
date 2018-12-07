@@ -1,20 +1,18 @@
 package objectsVerbindung;
 
 public class Stop {
-    Station station;
-    String arrival;
-    int arrivalTimestamp;
-    String departure;
-    int departureTimestamp;
-    boolean delay;
-    String platform;
-    Prognosis prognosis;
-    String realtimeAvailability;
-    Location location;
+    private Station station;
+    private String arrival;
+    private int arrivalTimestamp;
+    private String departure;
+    private int departureTimestamp;
+    private boolean delay;
+    private String platform;
+    private Prognosis prognosis;
+    private String realtimeAvailability;
+    private Station location;
 
-    public Station getStation() {
-        return station;
-    }
+    public Station getStation() { return station; }
 
     public void setStation(Station station) {
         this.station = station;
@@ -84,11 +82,11 @@ public class Stop {
         this.realtimeAvailability = realtimeAvailability;
     }
 
-    public Location getLocation() {
+    public Station getLocation() {
         return location;
     }
 
-    public void setLocation(Location location) {
+    public void setLocation(Station location) {
         this.location = location;
     }
 }

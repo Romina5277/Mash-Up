@@ -1,11 +1,11 @@
 package objectsVerbindung;
 
 public class Station {
-    String id;
-    String name;
-    String score;
-    Coordinate coordinate;
-    String distance;
+    private String id;
+    private String name;
+    private String score;
+    private Coordinate coordinate;
+    private String distance;
 
     public String getId() {
         return id;

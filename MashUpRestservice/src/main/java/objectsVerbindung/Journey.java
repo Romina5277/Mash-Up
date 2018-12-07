@@ -1,32 +1,23 @@
 package objectsVerbindung;
 
-public class Stationboard {
-    Stop stop;
-    String name;
-    String category;
-    String subcategory;
-    int categoryCode;
-    String number;
-    String operator;
-    String to;
-    PassList passList[];
-    String capacity1st;
-    String capacity2nd;
+public class Journey {
+    private String name;
+    private String category;
+    private String subcategory;
+    private int categoryCode;
+    private String number;
+    private String operator;
+    private String to;
+    private Stop[] passList;
+    private String capacity1st;
+    private String capacity2nd;
 
-    public PassList[] getPassList() {
+    public Stop[] getPassList() {
         return passList;
     }
 
-    public void setPassList(PassList[] passList) {
+    public void setPassList(Stop[] passList) {
         this.passList = passList;
-    }
-
-    public Stop getStop() {
-        return stop;
-    }
-
-    public void setStop(Stop stop) {
-        this.stop = stop;
     }
 
     public String getName() {

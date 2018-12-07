@@ -1,9 +1,9 @@
 package objectsVerbindung;
 
 public class Coordinate {
-    String type;
-    double x;
-    double y;
+    private String type;
+    private double x;
+    private double y;
 
     public String getType() {
         return type;

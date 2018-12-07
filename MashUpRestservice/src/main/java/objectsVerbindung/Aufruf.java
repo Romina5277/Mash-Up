@@ -1,22 +1,24 @@
 package objectsVerbindung;
 
 public class Aufruf {
-    Station station;
-    Stationboard[] stationboard;
+    private Connection[] connections;
+    private Station from;
+    private Station to;
+    private Stations stations;
 
-    public Station getStation() {
-        return station;
-    }
+    public Connection[] getConnections() { return connections; }
 
-    public void setStation(Station station) {
-        this.station = station;
-    }
+    public void setConnections(Connection[] connections) { this.connections = connections; }
 
-    public Stationboard[] getStationboard() {
-        return stationboard;
-    }
+    public Station getFrom() { return from; }
 
-    public void setStationboard(Stationboard[] stationboard) {
-        this.stationboard = stationboard;
-    }
+    public void setFrom(Station from) { this.from = from; }
+
+    public Station getTo() { return to; }
+
+    public void setTo(Station to) { this.to = to; }
+
+    public Stations getStations() { return stations; }
+
+    public void setStations(Stations stations) { this.stations = stations; }
 }
