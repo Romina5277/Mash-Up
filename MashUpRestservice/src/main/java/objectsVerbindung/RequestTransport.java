@@ -1,6 +1,6 @@
 package objectsVerbindung;
 
-public class Aufruf {
+public class RequestTransport {
     private Connection[] connections;
     private Station from;
     private Station to;

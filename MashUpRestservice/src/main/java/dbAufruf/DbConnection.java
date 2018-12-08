@@ -1,9 +1,6 @@
 package dbAufruf;
 
-import objectsDB.Login;
-
 import java.sql.*;
-import java.util.ArrayList;
 
 public class DbConnection {
     public static void connection(){

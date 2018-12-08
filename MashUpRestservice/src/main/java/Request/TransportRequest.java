@@ -1,6 +1,6 @@
 package Request;
 
-import objectsVerbindung.Aufruf;
+import objectsVerbindung.RequestTransport;
 import objectsVerbindung.Connection;
 import objectsVerbindung.Section;
 import objectsVerbindung.Stop;
@@ -12,7 +12,7 @@ import javax.ws.rs.core.MediaType;
 import java.util.ArrayList;
 
 public class TransportRequest {
-    private Aufruf aufruf;
+    private RequestTransport aufruf;
     private String from;
     private String to;
     private String departure;
@@ -24,7 +24,7 @@ public class TransportRequest {
         Client client = ClientBuilder.newClient();
         WebTarget target = client.target("http://transport.opendata.ch/v1/connections?from=Gen%C3%A8ve&to=Lausanne");
 
-        aufruf = target.request(MediaType.APPLICATION_JSON).get(Aufruf.class);
+        aufruf = target.request(MediaType.APPLICATION_JSON).get(RequestTransport.class);
         abfuellen();
     }
 

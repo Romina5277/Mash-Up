@@ -1,4 +1,5 @@
 import Request.TransportRequest;
+import Request.WitzeRequest;
 import dbAufruf.DbConnection;
 import objectsDB.Stundenplan;
 
@@ -8,12 +9,14 @@ import java.util.*;
 public class Main {
 
     private static ArrayList<Stundenplan> stundenplan = new ArrayList<>();
+    private static TransportRequest transportRequest = new TransportRequest();
+    private static WitzeRequest witzeRequest = new WitzeRequest();
 
     public static void main(String[] args){
         DbConnection.connection();
 
-/*        TransportRequest stationrequest = new TransportRequest();
-        stationrequest.doRequest();
+        transportRequest.doRequest();
+        witzeRequest.doRequest();
 
         stundenplan.add(new Stundenplan(1, 4, new Time(8,25,0), "Mathematik"));
         stundenplan.add(new Stundenplan(1, 4, new Time(9,15,0), "Mathematik"));
@@ -25,7 +28,7 @@ public class Main {
         stundenplan.add(new Stundenplan(1, 4, new Time(15,35,0), "Allgemeinbildung"));
         stundenplan.add(new Stundenplan(1, 4, new Time(16,25,0), "Allgemeinbildung"));
 
-*/        //doAusgabeStundenplan(1);
+        doAusgabeStundenplan(1);
     }
 
     public static void doAusgabeStundenplan(int user_id){
@@ -45,7 +48,6 @@ public class Main {
                 }
             }
         }
-
         System.out.println("-----------------------------------------");
     }
 }
