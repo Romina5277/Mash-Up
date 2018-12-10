@@ -1,6 +1,6 @@
 package objectsDB;
 
-public class Login {
+public class Account {
     private int user_id;
     private String username;
     private String e_mail;

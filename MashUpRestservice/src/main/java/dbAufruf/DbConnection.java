@@ -9,7 +9,7 @@ public class DbConnection {
             Connection connection = DriverManager.getConnection("jdbc:mysql://localhost/mash-up","root", "");
             System.out.println("Database is connected!");
 
-            String query = "SELECT * FROM login";
+            String query = "SELECT * FROM account";
             Statement stmt = connection.createStatement();
             ResultSet rs = stmt.executeQuery(query);
 
@@ -17,7 +17,7 @@ public class DbConnection {
 
             System.out.println("Anzahl Spalten = " + columns);
 
-            System.out.println("Alle Daten aus Login:");
+            System.out.println("Alle Daten aus Account:");
             System.out.println();
 
             for (int i = 1; i <= columns; i++){

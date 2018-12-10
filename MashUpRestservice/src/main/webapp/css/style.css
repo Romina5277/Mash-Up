@@ -49,6 +49,7 @@ body {
     background-color: darkred;
     position: fixed;
     overflow: auto;
+    color: black;
     top: 140px;
     left: 0;
     right: 0;
