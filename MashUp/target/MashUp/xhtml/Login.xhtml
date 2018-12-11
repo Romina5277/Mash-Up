@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+        PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html">
+
+
+<!--
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"> -->
+    <h:head>
+
+        <!-- <h:outputStylesheet library = "css" name = "LoginStyle.css" /> -->
+        <h:outputStylesheet name="css/LoginStyle.css" />
+
+        <title>Mash-Up</title>
+    </h:head>
+    <h:body>
+
+        <div id="content">
+ <!--           #{String}
+            #{viewLogin.buttonAction}   -->
+            <h1>Login</h1>
+            <p>#{loginView.acc.username} says #{loginView.blub}</p>
+            <form action="Home.xhtml">
+                <table>
+                    <tr>
+                        <td>Username:</td>
+                        <td><input type="text" name="username"/></td>
+                    </tr>
+                    <tr>
+                        <td>Password:</td>
+                        <td><input type="text" name="password"/></td>
+                    </tr>
+                </table>
+                <br/>
+                <input type="submit" value="Login"/>
+            </form>
+        </div>
+    </h:body>
+</html>
