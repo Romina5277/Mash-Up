@@ -39,8 +39,8 @@ public class DbConnection {
             switch (table){
                 case "account":
                     while (rs.next()){
-                        accs.add(new Account(rs.getInt("user_id"), rs.getString("username"),
-                                                rs.getString("e_mail"), rs.getString("password")));
+                        accs.add(new Account(rs.getInt("user_id"), rs.getString("username"), rs.getString("e_mail"),
+                                                 rs.getString("password"), rs.getString("wohnort"), rs.getString("schulort")));
                     }
                     break;
                 case "stundenplan":

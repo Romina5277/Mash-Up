@@ -14,7 +14,6 @@ public class LoginView implements Serializable {
 
     private ArrayList<Account> accs;
     private Account acc = new Account();
-    private String blub = "blub";
     private String username;
     private String password;
     private String massage;
@@ -56,14 +55,6 @@ public class LoginView implements Serializable {
 
     public void setAcc(Account acc) {
         this.acc = acc;
-    }
-
-    public String getBlub() {
-        return blub;
-    }
-
-    public void setBlub(String blub) {
-        this.blub = blub;
     }
 
     public ArrayList<Account> getAccs() {

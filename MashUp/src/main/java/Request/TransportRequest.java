@@ -20,9 +20,9 @@ public class TransportRequest {
     private String duration;
     private ArrayList<String> stopList = new ArrayList<>();
 
-    public void doRequest(){
+    public void doRequest(String from, String to){
         Client client = ClientBuilder.newClient();
-        WebTarget target = client.target("http://transport.opendata.ch/v1/connections?from=Gen%C3%A8ve&to=Lausanne");
+        WebTarget target = client.target("http://transport.opendata.ch/v1/connections?from=" + from + "&to=" + to);
 
         aufruf = target.request(MediaType.APPLICATION_JSON).get(RequestTransport.class);
         abfuellen();
@@ -30,20 +30,18 @@ public class TransportRequest {
 
     public void abfuellen(){
 
-        for (Connection connection: aufruf.getConnections()) {
-            from = connection.getFrom().getStation().getName();
-            to = connection.getTo().getStation().getName();
-            departure = connection.getFrom().getDeparture();
-            arrival = connection.getTo().getArrival();
-            duration = connection.getDuration();
+        from = aufruf.getConnections()[1].getFrom().getStation().getName();
+        to = aufruf.getConnections()[1].getTo().getStation().getName();
+        departure = aufruf.getConnections()[1].getFrom().getDeparture();
+        arrival = aufruf.getConnections()[1].getTo().getArrival();
+        duration = aufruf.getConnections()[1].getDuration();
 
-            for (Section section: connection.getSections()) {
-                for (Stop stop: section.getJourney().getPassList()) {
-                    stopList.add(stop.getStation().getName());
-                }
+        for (Section section: aufruf.getConnections()[1].getSections()) {
+            for (Stop stop: section.getJourney().getPassList()) {
+                stopList.add(stop.getStation().getName());
             }
-            //doAusgabe();
         }
+        //doAusgabe();
     }
 
     public void doAusgabe(){

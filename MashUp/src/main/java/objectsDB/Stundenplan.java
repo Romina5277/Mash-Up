@@ -6,6 +6,7 @@ public class Stundenplan {
     private int user_id;
     private int day;
     private Time start_time;
+    private Time end_time;
     private String lesson;
 
     public Stundenplan() {
@@ -16,6 +17,7 @@ public class Stundenplan {
         this.day = day;
         this.start_time = start_time;
         this.lesson = lesson;
+        this.end_time = new Time(start_time.getHours(), start_time.getMinutes() + 45, start_time.getSeconds());
     }
 
     public int getUser_id() {
@@ -94,5 +96,13 @@ public class Stundenplan {
 
     public void setLesson(String lesson) {
         this.lesson = lesson;
+    }
+
+    public Time getEnd_time() {
+        return end_time;
+    }
+
+    public void setEnd_time(Time end_time) {
+        this.end_time = end_time;
     }
 }

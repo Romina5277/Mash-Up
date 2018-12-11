@@ -15,12 +15,13 @@ import java.util.ArrayList;
 @SessionScoped
 public class HomeView implements Serializable {
 
-    private ArrayList<Account> accs;
-    private Account acc;
+    private ArrayList<Account> accs = new ArrayList<>();
+    private Account acc = new Account();
 
-    private ArrayList<Stundenplan> lessons;
+    private ArrayList<Stundenplan> lessons = new ArrayList<>();
+    private ArrayList<Stundenplan> donnerstag = new ArrayList<>();
+    private int donnerstagCode = 4;
 
-    private String witz;
 
     private String from;
     private String to;
@@ -35,29 +36,64 @@ public class HomeView implements Serializable {
 
             // Account
         conn.connection("account");
-
         accs = conn.getAccs();
+
             // Stundenplan
         conn.connection("stundenplan");
         lessons = conn.getLessons();
+    }
 
+    public void findAcc(String username){
+        for (Account account : accs) {
+            if (account.getUsername().equals(username)){
+                acc = account;
+            }
+        }
+    }
 
+    public String getDay(){
+
+        for (Stundenplan lesson : lessons){
+            if (lesson.getDayInt() == donnerstagCode){
+                return lesson.getDayString();
+            }
+        }
+
+        return "Keine Ahnung";
+    }
+
+    public void findLessons(){
+        boolean exist = false;
+        for (Stundenplan lesson : lessons) {
+            if (lesson.getUser_id() == acc.getUser_id()
+                    && lesson.getDayInt() == donnerstagCode){
+                for (Stundenplan unterricht : donnerstag) {
+                    if (lesson.getStart_time() == unterricht.getStart_time()){
+                        exist = true;
+                    }
+                }
+
+                if(!exist){
+                    donnerstag.add(lesson);
+                }
+
+                exist = false;
+            }
+        }
+    }
+
+    public void findConnection(){
         //Request: Verbindungen mit der ÖV
         TransportRequest transport = new TransportRequest();
-        transport.doRequest();
+        transport.doRequest(acc.getWohnort(), acc.getSchulort());
 
-            //abfüllen
+        //abfüllen
         from = transport.getFrom();
         to = transport.getTo();
         departure = transport.getDeparture();
         arrival = transport.getArrival();
         duration = transport.getDuration();
         stopList = transport.getStopList();
-
-
-        //Request: Aufmunterung für den Tag
-        WitzeRequest witze = new WitzeRequest();
-        witz = witze.doRequest();
     }
 
     public ArrayList<Account> getAccs() {
@@ -66,14 +102,6 @@ public class HomeView implements Serializable {
 
     public void setAccs(ArrayList<Account> accs) {
         this.accs = accs;
-    }
-
-    public Account getAcc() {
-        return acc;
-    }
-
-    public void setAcc(Account acc) {
-        this.acc = acc;
     }
 
     public ArrayList<Stundenplan> getLessons() {
@@ -85,11 +113,8 @@ public class HomeView implements Serializable {
     }
 
     public String getWitz() {
-        return witz;
-    }
-
-    public void setWitz(String witz) {
-        this.witz = witz;
+        WitzeRequest witze = new WitzeRequest();
+        return witze.doRequest();
     }
 
     public String getFrom() {
@@ -138,5 +163,29 @@ public class HomeView implements Serializable {
 
     public void setStopList(ArrayList<String> stopList) {
         this.stopList = stopList;
+    }
+
+    public Account getAcc() {
+        return acc;
+    }
+
+    public void setAcc(Account acc) {
+        this.acc = acc;
+    }
+
+    public ArrayList<Stundenplan> getDonnerstag() {
+        return donnerstag;
+    }
+
+    public void setDonnerstag(ArrayList<Stundenplan> donnerstag) {
+        this.donnerstag = donnerstag;
+    }
+
+    public int getDonnerstagCode() {
+        return donnerstagCode;
+    }
+
+    public void setDonnerstagCode(int donnerstagCode) {
+        this.donnerstagCode = donnerstagCode;
     }
 }
