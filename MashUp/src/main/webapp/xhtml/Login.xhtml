@@ -26,20 +26,25 @@
             #{viewLogin.buttonAction}   -->
             <h1>Login</h1>
             <p>#{loginView.acc.username} says #{loginView.blub}</p>
-            <form action="Home.xhtml">
+            <h:form>
                 <table>
                     <tr>
                         <td>Username:</td>
-                        <td><input type="text" name="username"/></td>
+                        <td><h:inputText value="#{loginView.username}" name="username" /></td>
                     </tr>
                     <tr>
                         <td>Password:</td>
-                        <td><input type="text" name="password"/></td>
+                        <td><h:inputText value="#{loginView.password}" name="username" /></td>
                     </tr>
                 </table>
                 <br/>
-                <input type="submit" value="Login"/>
-            </form>
+                <h:commandLink immediate="true" action="#{loginView.buttonAction}" value="Login" />
+                <input type="submit" value="Login" id="submitButton" />
+                <br/>
+            </h:form>
+            <br/>
+            <br/>
+            #{loginView.massage}
         </div>
     </h:body>
 </html>

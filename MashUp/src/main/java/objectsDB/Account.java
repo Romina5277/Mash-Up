@@ -6,6 +6,17 @@ public class Account {
     private String e_mail;
     private String password;
 
+    public Account() {
+
+    }
+
+    public Account(int user_id, String username, String e_mail, String password) {
+        this.user_id = user_id;
+        this.username = username;
+        this.e_mail = e_mail;
+        this.password = password;
+    }
+
     public int getUser_id() {
         return user_id;
     }

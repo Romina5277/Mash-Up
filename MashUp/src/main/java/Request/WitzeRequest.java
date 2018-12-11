@@ -11,18 +11,18 @@ public class WitzeRequest {
     private RequestWitze aufruf;
     private String witz;
 
-    public RequestWitze doRequest(){
+    public String doRequest(){
         Client client = ClientBuilder.newClient();
         WebTarget target = client.target("http://api.icndb.com/jokes/random");
 
         aufruf = target.request(MediaType.APPLICATION_JSON).get(RequestWitze.class);
-        abfuellen();
-        return aufruf;
+        return abfuellen();
     }
 
-    public void abfuellen(){
+    public String abfuellen(){
         witz = aufruf.getValue().getJoke();
-        doAusgabe();
+        //doAusgabe();
+        return witz;
     }
 
     public void doAusgabe(){

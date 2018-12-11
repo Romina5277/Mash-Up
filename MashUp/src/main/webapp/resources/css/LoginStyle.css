@@ -17,3 +17,14 @@ body {
 #content table{
     display: inline;
 }
+
+submitButton {
+    visibility: hidden;
+}
+
+#loginlink {
+    color: white;
+    font-size: 15px;
+    border: white;
+    background-color: aliceblue;
+}

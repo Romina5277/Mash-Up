@@ -8,19 +8,19 @@ import java.util.ArrayList;
 
 public class DbConnection {
 
-    private Account acc;
-    private ArrayList<Stundenplan> lessons;
+    private ArrayList<Account> accs = new ArrayList<>();
+    private ArrayList<Stundenplan> lessons = new ArrayList<>();
 
-    public void connection(){
+    public void connection(String table){
         try {
             Class.forName("com.mysql.jdbc.Driver");
             Connection connection = DriverManager.getConnection("jdbc:mysql://localhost/mash-up","root", "");
             System.out.println("Database is connected!");
 
-            String query = "SELECT * FROM account";
+            String query = "SELECT * FROM " + table;
             Statement stmt = connection.createStatement();
             ResultSet rs = stmt.executeQuery(query);
-
+/*
             int columns = rs.getMetaData().getColumnCount();
 
             System.out.println("Anzahl Spalten = " + columns);
@@ -34,19 +34,46 @@ public class DbConnection {
 
             System.out.println();
             System.out.println();
+*/
 
-            while (rs.next()){
-                for (int i = 1; i <= columns; i++){
-                    System.out.print(rs.getString(i) + "\t\t");
-                }
-                System.out.println();
+            switch (table){
+                case "account":
+                    while (rs.next()){
+                        accs.add(new Account(rs.getInt("user_id"), rs.getString("username"),
+                                                rs.getString("e_mail"), rs.getString("password")));
+                    }
+                    break;
+                case "stundenplan":
+                    while (rs.next()){
+                        lessons.add(new Stundenplan(rs.getInt("user_id"), rs.getInt("day"),
+                                                        rs.getTime("start_time"), rs.getString("lesson")));
+                    }
+                    break;
+                default:
+                    System.out.println("Diese Tabelle ist nicht vorhanden!");
+                    break;
             }
-
             connection.close();
         } catch (SQLException e){
             System.out.println("SQLException: " + e);
         } catch (Exception e){
             System.out.println("Do not connect to DB - Error: " + e);
         }
+    }
+
+    public ArrayList<Account> getAccs() {
+        return accs;
+    }
+
+    public void setAccs(ArrayList<Account> accs) {
+        this.accs = accs;
+    }
+
+    public ArrayList<Stundenplan> getLessons() {
+        return lessons;
+    }
+
+    public void setLessons(ArrayList<Stundenplan> lessons) {
+        this.lessons = lessons;
     }
 }
