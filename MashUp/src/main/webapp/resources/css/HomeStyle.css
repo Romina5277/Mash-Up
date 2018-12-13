@@ -94,3 +94,8 @@ body {
 #loginDiv table{
     display: inline;
 }
+
+#stundenplanTable {
+    border: black;
+    border-collapse: collapse;
+}

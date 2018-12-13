@@ -29,8 +29,11 @@
                     </tr>
                 </table>
                 <br/>
-                <input type="submit" value="Submit" id="submitButton" />
-                <h:commandLink immediate="true" action="#{loginView.buttonAction}" value="Login" />
+               <!--<h:commandButton type="submit" value="Submit" id="submitButton" onclick="#{loginView.buttonAction()}" /> -->
+
+               <input type="submit" value="Submit" id="submitButton" />
+               <h:commandLink immediate="true" action="#{loginView.buttonAction}" value="Login" />
+
                 <br/>
             </h:form>
             <br/>

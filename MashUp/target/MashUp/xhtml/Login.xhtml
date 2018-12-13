@@ -7,14 +7,8 @@
       xmlns:f="http://java.sun.com/jsf/core"
       xmlns:h="http://java.sun.com/jsf/html">
 
-
-<!--
-      xmlns:ui="http://java.sun.com/jsf/facelets"
-      xmlns:f="http://java.sun.com/jsf/core"
-      xmlns:h="http://java.sun.com/jsf/html"> -->
     <h:head>
 
-        <!-- <h:outputStylesheet library = "css" name = "LoginStyle.css" /> -->
         <h:outputStylesheet name="css/LoginStyle.css" />
 
         <title>Mash-Up</title>
@@ -22,25 +16,29 @@
     <h:body>
 
         <div id="content">
- <!--           #{String}
-            #{viewLogin.buttonAction}   -->
             <h1>Login</h1>
-            <p>#{loginView.acc.username} says #{loginView.blub}</p>
-            <p>#{loginView.acc.e_mail}</p>
-            <form action="Home.xhtml">
+            <h:form>
                 <table>
                     <tr>
                         <td>Username:</td>
-                        <td><input type="text" name="username"/></td>
+                        <td><h:inputText value="#{loginView.username}" name="username" /></td>
                     </tr>
                     <tr>
                         <td>Password:</td>
-                        <td><input type="text" name="password"/></td>
+                        <td><h:inputText value="#{loginView.password}" name="username" /></td>
                     </tr>
                 </table>
                 <br/>
-                <input type="submit" value="Login"/>
-            </form>
+               <!--<h:commandButton type="submit" value="Submit" id="submitButton" onclick="#{loginView.buttonAction()}" /> -->
+
+               <input type="submit" value="Submit" id="submitButton" />
+               <h:commandLink immediate="true" action="#{loginView.buttonAction}" value="Login" />
+
+                <br/>
+            </h:form>
+            <br/>
+            <br/>
+            #{loginView.massage}
         </div>
     </h:body>
 </html>
