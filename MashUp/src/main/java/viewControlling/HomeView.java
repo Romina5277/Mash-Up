@@ -111,10 +111,20 @@ public class HomeView implements Serializable {
         }
     }
 
-    public void findConnection(){
+    public void findConnection(String weg){
         //Request: Verbindungen mit der ÖV
         TransportRequest transport = new TransportRequest();
-        transport.doRequest(acc.getWohnort(), acc.getSchulort());
+        switch (weg){
+            case "home":
+                transport.doRequest(acc.getSchulort(), acc.getWohnort());
+                break;
+            case "school":
+                transport.doRequest(acc.getWohnort(), acc.getSchulort());
+                break;
+            default:
+                transport.doRequest("Zürich", "Winterthur");
+                break;
+        }
 
         //abfüllen
         from = transport.getFrom();

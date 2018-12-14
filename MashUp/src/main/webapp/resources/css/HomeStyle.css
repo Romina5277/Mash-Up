@@ -55,8 +55,47 @@ body {
     bottom: 40px;
 }
 
+h4 {
+    text-align: center;
+}
+
 .subtitle {
     text-align: center;
+}
+
+#verbindungSchule {
+     width: 50%;
+     float: left;
+}
+
+#verbindungSchule h4{
+    text-align: center;
+}
+
+#verbindungSchule table{
+    margin-left: auto;
+    margin-right: auto;
+    text-align: left;
+}
+
+#verbindungHome {
+    width: 50%;
+    float: right;
+}
+
+#verbindungHome h4{
+    text-align: center;
+}
+
+#verbindungHome table{
+    margin-left: auto;
+    margin-right: auto;
+    text-align: left;
+}
+
+#stundenplanTable table, th, td {
+    border: 1px solid black;
+    border-collapse: collapse;
 }
 
 #footer {
@@ -97,9 +136,4 @@ body {
 
 #loginDiv table{
     display: inline;
-}
-
-#stundenplanTable {
-    border: black;
-    border-collapse: collapse;
 }

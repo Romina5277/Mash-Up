@@ -72,43 +72,75 @@
             </table>
 
             <h2 class="subtitle" id="verbundungen">Verbindungen</h2>
-            #{homeView.findConnection()}
-
-            <table id="transportTable">
-                <tr>
-                    <th>From:</th>
-                    <td>#{homeView.from}</td>
-                </tr>
-                <tr>
-                    <th>To:</th>
-                    <td>#{homeView.to}</td>
-                </tr>
-                <tr>
-                    <th>Departure:</th>
-                    <td>#{homeView.departure}</td>
-                </tr>
-                <tr>
-                    <th>Arrival:</th>
-                    <td>#{homeView.arrival}</td>
-                </tr>
-                <tr>
-                    <th>Duration:</th>
-                    <td>#{homeView.duration}</td>
-                </tr>
-                <ui:repeat value="#{homeView.stopList}" var="stop">
+            <div id="verbindungSchule">
+                #{homeView.findConnection("school")}
+                <h4>Go to School</h4>
+                <table id="transportTable">
                     <tr>
-                        <th>Stop in:</th>
-                        <td>#{stop}</td>
+                        <th>From:</th>
+                        <td>#{homeView.from}</td>
                     </tr>
-                </ui:repeat>
-            </table>
+                    <tr>
+                        <th>To:</th>
+                        <td>#{homeView.to}</td>
+                    </tr>
+                    <tr>
+                        <th>Departure:</th>
+                        <td>#{homeView.departure}</td>
+                    </tr>
+                    <tr>
+                        <th>Arrival:</th>
+                        <td>#{homeView.arrival}</td>
+                    </tr>
+                    <tr>
+                        <th>Duration:</th>
+                        <td>#{homeView.duration}</td>
+                    </tr>
+                    <ui:repeat value="#{homeView.stopList}" var="stop">
+                        <tr>
+                            <th>Stop in:</th>
+                            <td>#{stop}</td>
+                        </tr>
+                    </ui:repeat>
+                </table>
+            </div>
+            <div id="verbindungHome">
+                #{homeView.findConnection("home")}
+                <h4>Finally go home again</h4>
+                <table id="transportTable">
+                    <tr>
+                        <th>From:</th>
+                        <td>#{homeView.from}</td>
+                    </tr>
+                    <tr>
+                        <th>To:</th>
+                        <td>#{homeView.to}</td>
+                    </tr>
+                    <tr>
+                        <th>Departure:</th>
+                        <td>#{homeView.departure}</td>
+                    </tr>
+                    <tr>
+                        <th>Arrival:</th>
+                        <td>#{homeView.arrival}</td>
+                    </tr>
+                    <tr>
+                        <th>Duration:</th>
+                        <td>#{homeView.duration}</td>
+                    </tr>
+                    <ui:repeat value="#{homeView.stopList}" var="stop">
+                        <tr>
+                            <th>Stop in:</th>
+                            <td>#{stop}</td>
+                        </tr>
+                    </ui:repeat>
+                </table>
+            </div>
+            <div style="clear: both;" />
             <h2 class="subtitle" id="aufmunterung">Aufmunterung</h2>
-            #{homeView.witz}
             <br/>
             <br/>
-            <br/>
-            <br/>
-            <br/>
+            <h4>#{homeView.witz}</h4>
             <br/>
             <br/>
             <br/>
