@@ -29,16 +29,13 @@
                     </tr>
                 </table>
                 <br/>
-               <!--<h:commandButton type="submit" value="Submit" id="submitButton" onclick="#{loginView.buttonAction()}" /> -->
-
-               <input type="submit" value="Submit" id="submitButton" />
-               <h:commandLink immediate="true" action="#{loginView.buttonAction}" value="Login" />
+               <h:commandButton value="Submit" id="submitButton" action="#{loginView.buttonAction()}" />
 
                 <br/>
             </h:form>
             <br/>
             <br/>
-            #{loginView.massage}
+            #{loginView.message}
         </div>
     </h:body>
 </html>

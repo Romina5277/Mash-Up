@@ -14,15 +14,15 @@ import java.util.ArrayList;
 @ManagedBean
 @SessionScoped
 public class HomeView implements Serializable {
-
-    private ArrayList<Account> accs = new ArrayList<>();
+    // Abfüller
+        // Account
+    private ArrayList<Account> accs;
     private Account acc = new Account();
-
-    private ArrayList<Stundenplan> lessons = new ArrayList<>();
+        // Stundenplan
+    private ArrayList<Stundenplan> lessons;
     private ArrayList<Stundenplan> donnerstag = new ArrayList<>();
     private int donnerstagCode = 4;
-
-
+        // TransportRequest
     private String from;
     private String to;
     private String departure;
@@ -30,6 +30,15 @@ public class HomeView implements Serializable {
     private String duration;
     private ArrayList<String> stopList = new ArrayList<>();
 
+    /*
+     * @author: Romina Ferrario
+     *
+     * Abfüllen der Daten aus der Datenbank
+     *
+     * parameter: none
+     * return: none
+     *
+     */
     public HomeView() {
         // Daten aus der DB
         DbConnection conn = new DbConnection();
@@ -43,6 +52,16 @@ public class HomeView implements Serializable {
         lessons = conn.getLessons();
     }
 
+    /*
+     * @author: Romina Ferrario
+     *
+     * Angemeldeten Account finden und dessen Daten abspeichern
+     *
+     * parameter: String
+     *              username
+     * return: none
+     *
+     */
     public void findAcc(String username){
         for (Account account : accs) {
             if (account.getUsername().equals(username)){
@@ -51,6 +70,16 @@ public class HomeView implements Serializable {
         }
     }
 
+    /*
+     * @author: Romina Ferrario
+     *
+     * Schultag heraussuchen (1-7 = Montag - Sonntag)
+     *
+     * parameter: none
+     * return: String
+     *           day
+     *
+     */
     public String getDay(){
 
         for (Stundenplan lesson : lessons){

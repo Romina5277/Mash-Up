@@ -20,21 +20,6 @@ public class DbConnection {
             String query = "SELECT * FROM " + table;
             Statement stmt = connection.createStatement();
             ResultSet rs = stmt.executeQuery(query);
-/*
-            int columns = rs.getMetaData().getColumnCount();
-
-            System.out.println("Anzahl Spalten = " + columns);
-
-            System.out.println("Alle Daten aus objectsDB.Account:");
-            System.out.println();
-
-            for (int i = 1; i <= columns; i++){
-                System.out.print(rs.getMetaData().getColumnLabel(i) + "\t\t");
-            }
-
-            System.out.println();
-            System.out.println();
-*/
 
             switch (table){
                 case "account":

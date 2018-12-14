@@ -30,7 +30,7 @@
         </div>
 
         <div id="content">
-            <h2 id="account">Account</h2>
+            <h2 class="subtitle" id="account">Account</h2>
             <table id="accountTable">
                 #{homeView.findAcc(loginView.username)}
                 <tr>
@@ -50,8 +50,10 @@
                     <td>#{homeView.acc.schulort}</td>
                 </tr>
             </table>
-            <h2 id="stundenplan">Stundenplan</h2>
-            #{homeView.day}
+            <h2 class="subtitle" id="stundenplan">Stundenplan</h2>
+            <strong>#{homeView.day}</strong>
+            <br/>
+            <br/>
 
             #{homeView.findLessons()}
             <table id="stundenplanTable">
@@ -69,7 +71,7 @@
                 </ui:repeat>
             </table>
 
-            <h2 id="verbundungen">Verbindungen</h2>
+            <h2 class="subtitle" id="verbundungen">Verbindungen</h2>
             #{homeView.findConnection()}
 
             <table id="transportTable">
@@ -100,34 +102,8 @@
                     </tr>
                 </ui:repeat>
             </table>
-            <h2 id="aufmunterung">Aufmunterung</h2>
+            <h2 class="subtitle" id="aufmunterung">Aufmunterung</h2>
             #{homeView.witz}
-            <br/>
-            <br/>
-            <br/>
-            <br/>
-            <br/>
-            <br/>
-            <br/>
-            <br/>
-            <br/>
-            <br/>
-            <br/>
-            <br/>
-            <br/>
-            <br/>
-            <br/>
-            <br/>
-            <br/>
-            <br/>
-            <br/>
-            <br/>
-            <br/>
-            <br/>
-            <br/>
-            <br/>
-            <br/>
-            <br/>
             <br/>
             <br/>
             <br/>

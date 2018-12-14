@@ -41,28 +41,6 @@ public class TransportRequest {
                 stopList.add(stop.getStation().getName());
             }
         }
-        //doAusgabe();
-    }
-
-    public void doAusgabe(){
-
-        System.out.println("--------------------------------------------------");
-        System.out.println("From: " + from);
-        System.out.println("To: " + to);
-        System.out.println("Departure: " + departure);
-        System.out.println("Arrival: " + arrival);
-        System.out.println("Duration: " + duration);
-
-        for (String stop: stopList) {
-            if (stop != null){
-                System.out.println("Stop in: " + stop);
-            }
-        }
-
-        System.out.println();
-        System.out.println("--------------------------------------------------");
-
-        stopList = new ArrayList<>();
     }
 
     public RequestTransport getAufruf() {

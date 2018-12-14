@@ -16,7 +16,7 @@ public class LoginView implements Serializable {
     private Account acc = new Account();
     private String username;
     private String password;
-    private String massage;
+    private String message;
     private Boolean fail = true;
 
     public LoginView() {
@@ -30,21 +30,21 @@ public class LoginView implements Serializable {
     public String buttonAction(){
 
         fail = true;
-        massage = "wrong username";
+        message = "";
 
         for (Account acc : accs) {
             if(acc.getUsername().equals(username)){
                 if (acc.getPassword().equals(password)){
                     fail = false;
-                } else {
-                    massage = "wrong password";
                 }
             }
         }
 
         if (fail){
+            message = "wrong username or password";
             return "Login.xhtml";
         } else {
+            message = "";
             return "Home.xhtml";
         }
     }
@@ -73,12 +73,12 @@ public class LoginView implements Serializable {
         this.username = username;
     }
 
-    public String getMassage() {
-        return massage;
+    public String getMessage() {
+        return message;
     }
 
-    public void setMassage(String massage) {
-        this.massage = massage;
+    public void setMessage(String message) {
+        this.message = message;
     }
 
     public Boolean getFail() {

@@ -16,20 +16,8 @@ public class WitzeRequest {
         WebTarget target = client.target("http://api.icndb.com/jokes/random");
 
         aufruf = target.request(MediaType.APPLICATION_JSON).get(RequestWitze.class);
-        return abfuellen();
-    }
-
-    public String abfuellen(){
         witz = aufruf.getValue().getJoke();
-        //doAusgabe();
+
         return witz;
-    }
-
-    public void doAusgabe(){
-
-        System.out.println("--------------------------------------------------");
-        System.out.println(witz);
-        System.out.println("--------------------------------------------------");
-
     }
 }
